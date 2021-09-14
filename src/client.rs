@@ -21,10 +21,8 @@ pub async fn client(addr: &str, sni: &str, verify: bool, readonly: bool) -> Resu
     let tlsstream = tls_connect(tcpstream, sni, verify).await?;
 
     println!("Server fingerprint: {}", peer_digest(&tlsstream)?);
-    if !verify {
         println!("Connecting");{
             return Ok(());
-        }
     }
 
     if readonly {
