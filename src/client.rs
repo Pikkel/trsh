@@ -22,10 +22,7 @@ pub async fn client(addr: &str, sni: &str, verify: bool, readonly: bool) -> Resu
 
     println!("Server fingerprint: {}", peer_digest(&tlsstream)?);
     if !verify {
-        println!("Do you want continue? [y/N]");
-        let buf = &mut String::new();
-        stdin().read_line(buf)?;
-        if !buf.to_ascii_lowercase().starts_with('y') {
+        println!("Connecting");{
             return Ok(());
         }
     }
